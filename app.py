@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "inisecretkeyku2021"
 
 @app.route("/")
 def main():
@@ -43,6 +44,27 @@ def string_parsing(namaku):
 def ayo_argument():
     data = request.args.get("nilai")
     return "nilainya dari argument parser adalah {}".format(data)
+
+
+# parsing nilai dari url untuk mengset nilai session
+@app.route("/halaman/<int:nilai>")
+def session_1(nilai):
+    session["nilaiku"] = nilai
+    return "Berhasil mengset nilainya"
+
+@app.route("/halaman/lihat")
+def view_session_1():
+    try:
+        data = session["nilaiku"]
+        return "Nilai yang telah disession adalah {}".format(data)
+    except:
+        return "Anda tidak mempunyai nilai session lagi"
+
+# logout / destroy session
+@app.route("/halaman/logout")
+def logout_session_1():
+    session.pop("nilaiku")
+    return "Berhasil logout / menghapus session"
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
