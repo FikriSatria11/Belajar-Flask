@@ -5,7 +5,17 @@ app = Flask(__name__)
 @app.route("/")
 def main():
     nilaiku = 200
-    return render_template("index.html", nilai = nilaiku)
+
+    # looping
+    hari = ["senin", "selasa", "rabu", "kamis", "jumat", "sabtu", "minggu"]
+
+    # seleksi kondisi if-else
+    perasaan = "nda tau" # jika senang maka dia juga cinta, jika tidak maka dia sedih
+
+    #set variable
+
+
+    return render_template("index.html", nilai = nilaiku, day = hari, feeling = perasaan)
 
 @app.route("/ini_index")
 def myindex():
