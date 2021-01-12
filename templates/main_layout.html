@@ -6,8 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>about</h2>
-    <h2>contact</h2>
+    <div>
+        <a href="{{ url_for('index') }}">Index</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+    </div>
+
     {% block content %}{% endblock %}
 </body>
 </html>
