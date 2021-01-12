@@ -1,0 +1,52 @@
+<html>
+    <title>Selamat Datang</title>
+    <head></head>
+    <body>
+
+        <div>
+            <p>hallo flask</p>
+            <p>ini projek ku</p>
+            <p>nilai saya adalah : <strong>{{nilai}}</strong> </p>
+        </div>
+
+        <div>============================================</div>
+        <div> <!-- ini perulangan -->
+            <p>ini perulangan</p>
+            {% for data in day %}
+                <li>{{ data }}</li>
+            {% endfor %}
+        </div>
+
+        <div>============================================</div>
+        <div> <!-- ini seleksi kondisi if-else -->
+            <p>ini seleksi kondisi if-else</p>
+            <p>perasaanmu {{feeling}}</p>
+            {% if feeling == "senang" %}
+                <p>dia juga senang</p>
+            {% elif feeling == "sedih"%}
+                <p>dia juga sedih</p>
+            {% else %}
+                <p>dia bingung</p>
+            {% endif %}
+        </div>
+        
+        <div>============================================</div>
+        <div> <!-- ini set variabel -->
+            <p>ini set variabel</p>
+            {% set hari = "minggu"%}
+            <p>{{hari}}</p>
+        </div>
+
+        <div>============================================</div>
+        <div>
+            {% for data in day%}
+                {% if data == hari %}
+                    <p>{{data}} mantap</p>
+                {% else %}
+                    <p>{{data}} tidak mantap</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </body>
+</html>
